@@ -4,7 +4,9 @@ project(inih)
 INCLUDE(GNUInstallDirs)
 
 add_subdirectory(include)
+include_directories(include)
 add_subdirectory(lib)
+add_subdirectory(tests)
 
 if( CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
   set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "-fPIC")
