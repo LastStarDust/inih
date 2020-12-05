@@ -11,6 +11,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <set>
 
 // Read an INI file into easy-to-access name/value pairs. (Note that I've gone
 // for simplicity here rather than speed, but it should be pretty decent.)
@@ -44,17 +45,17 @@ public:
   bool GetBoolean(const std::string& section, const std::string& name, bool default_value);
 
   // Returns all the sections (groups) from the associated INI file
-  std::vector<std::string> GetSections() const;
+  std::set<std::string> GetSections() const;
 
   // Return all the fields of a section
-  std::vector<std::string> GetFields(std::string section) const;
+  std::set<std::string> GetFields(std::string section) const;
 
 private:
   int _error;
-  std::vector<std::string> _sections;
+  std::set<std::string> _sections;
   // Because we want to retain the original casing in _fields, but
   // want lookups to be case-insensitive, we need both _fields and _values
-  std::map<std::string, std::vector<std::string> *> _fields;
+  std::map<std::string, std::set<std::string> *> _fields;
   std::map<std::string, std::string> _values;
 
   static std::string MakeKey(const std::string& section, const std::string& name);
