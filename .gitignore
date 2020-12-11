@@ -5,3 +5,6 @@ cmake_install.cmake
 Makefile
 *~
 *.pc
+build*
+cmake-build-*
+.idea*

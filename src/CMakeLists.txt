@@ -18,5 +18,6 @@ else(BUILD_SHARED_LIBS)
   add_library(inihcpp STATIC ini.c INIReader.cpp)
 endif(BUILD_SHARED_LIBS)
 
-install(TARGETS inih inihcpp DESTINATION ${CMAKE_INSTALL_LIBDIR})
+set(INIH_INSTALL_LIBDIR lib)
+install(TARGETS inih inihcpp DESTINATION ${CMAKE_INSTALL_PREFIX}/${INIH_INSTALL_LIBDIR})
 
